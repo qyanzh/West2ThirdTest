@@ -1,6 +1,6 @@
 package com.example.west2thirdtest;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +19,6 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
             bookName=view.findViewById(R.id.book_name);
             linearLayout = view.findViewById(R.id.name_layout);
         }
-
     }
 
     public BookAdapter(List<Book> mBookList) {
@@ -37,8 +36,12 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
         Book book = mBookList.get(i);
         viewHolder.bookName.setText(book.getName());
-        viewHolder.linearLayout.setBackgroundColor(book.getColor());
+        if(i%2==0)
+            viewHolder.linearLayout.setBackgroundColor( Color.parseColor("#ffffff"));
+        else
+            viewHolder.linearLayout.setBackgroundColor( Color.parseColor("#dbedfd"));
     }
+
 
     @Override
     public int getItemCount() {

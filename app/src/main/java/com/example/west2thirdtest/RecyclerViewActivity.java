@@ -36,6 +36,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
         bookRecyclerView.setLayoutManager(layoutManager);
         adapter = new BookAdapter(bookList);
         bookRecyclerView.setAdapter(adapter);
+
         addBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,6 +45,7 @@ public class RecyclerViewActivity extends AppCompatActivity {
                     Book book = new Book(content);
                     bookList.add(0,book);
                     adapter.notifyItemInserted(0);
+                    adapter.notifyDataSetChanged();
                     bookRecyclerView.scrollToPosition(0);
                     inputText.setText("");
                 }
